@@ -16,11 +16,15 @@ public class Motorcycle extends Vehicle {
     @Override
     public void moveForAnHour(Race race) {
         if (Weather.isRaining()) {
-            if (race.isIsThereABrokenTruck()) distanceTraveled += 75 - Util.getRandomNumber(5, 50);
-            else distanceTraveled += normalSpeed  - Util.getRandomNumber(5, 50);
+            int newSpeed = normalSpeed - Util.getRandomNumber(5, 50);
+            if (race.isThereABrokenTruck()) {
+                if (newSpeed >= 75) distanceTraveled += 75;
+                else distanceTraveled += newSpeed;
+            }
+            else distanceTraveled += newSpeed;
         }
         else {
-            if (race.isIsThereABrokenTruck()) distanceTraveled += 75;
+            if (race.isThereABrokenTruck()) distanceTraveled += 75;
             else distanceTraveled += normalSpeed;
         }
     }

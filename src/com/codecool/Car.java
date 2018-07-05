@@ -14,7 +14,7 @@ public class Car extends Vehicle {
 
     @Override
     public void moveForAnHour(Race race) {
-        if (race.isIsThereABrokenTruck()) {
+        if (race.isThereABrokenTruck()) {
             if (normalSpeed >= 75)  distanceTraveled += 75;
             else distanceTraveled += normalSpeed;
         } else {

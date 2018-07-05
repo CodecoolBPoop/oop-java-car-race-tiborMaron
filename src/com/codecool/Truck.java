@@ -18,7 +18,7 @@ public class Truck extends Vehicle {
         if (breakdownTurnsLeft == 0) {
             if (Util.probability(5)) breakdownTurnsLeft = 2;
             else {
-                if (race.isIsThereABrokenTruck()) distanceTraveled += 75;
+                if (race.isThereABrokenTruck()) distanceTraveled += 75;
                 else distanceTraveled += normalSpeed;
             }
         } else {

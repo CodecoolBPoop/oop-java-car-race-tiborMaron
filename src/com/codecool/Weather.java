@@ -4,7 +4,7 @@ class Weather {
     private static boolean isRaining = false;
 
     static void setRaining() {
-        if (Util.probability(30)) isRaining = true;
+        isRaining = Util.probability(30);
     }
 
     static boolean isRaining() {

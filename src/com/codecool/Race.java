@@ -28,8 +28,8 @@ public class Race {
     }
 
     private void simulateRace() {
-        Weather.setRaining();
         for (int i = 0; i < 50; i++) {
+            Weather.setRaining();
             searchForBrokenTruck();
             for (List<Vehicle> vehicleType : vehicleTypes) {
                 for (Vehicle vehicle : vehicleType) {
@@ -40,9 +40,6 @@ public class Race {
     }
 
     private void printRaceResults() {
-        if (Weather.isRaining()) System.out.println("It's raining!");
-        else System.out.println("It isn't raining!");
-
         for (int i = 0; i < vehicleTypes.size(); i++) {
             System.out.println("\n" + types[i] + "s:");
             for (Vehicle vehicle : vehicleTypes.get(i)) {
@@ -62,7 +59,7 @@ public class Race {
         isThereABrokenTruck = false;
     }
 
-    boolean isIsThereABrokenTruck() {
+    boolean isThereABrokenTruck() {
         return isThereABrokenTruck;
     }
 
