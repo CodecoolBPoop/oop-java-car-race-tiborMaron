@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Util {
+class Util {
     private static Random random = new Random();
     private static List<String> names = new ArrayList<>();
 
@@ -24,17 +24,17 @@ public class Util {
         }
     }
 
-    public static int getRandomNumber(int from, int to) {
+    static int getRandomNumber(int from, int to) {
         return random.nextInt(to - from + 1) + from;
     }
 
-    public static String generateCarName() {
+    static String generateCarName() {
         int firstNameIndex = random.nextInt(names.size());
         int lastNameIndex = random.nextInt(names.size());
         return names.get(firstNameIndex) + " " + names.get(lastNameIndex);
     }
 
-    public static boolean probability(int percent) {
+    static boolean probability(int percent) {
         int randomNumber = getRandomNumber(1, 100);
         return randomNumber <= percent;
     }

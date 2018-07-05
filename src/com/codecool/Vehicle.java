@@ -5,18 +5,15 @@ public abstract class Vehicle {
     String name;
     int distanceTraveled = 0;
 
-    public int getNormalSpeed() {
-        return normalSpeed;
-    }
-
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public int getDistanceTraveled() {
+    int getDistanceTraveled() {
         return distanceTraveled;
     }
 
-    public void moveForAnHour() {
-    }
+    public abstract boolean isBrokenDown();
+
+    public abstract void moveForAnHour(Race race);
 }

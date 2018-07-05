@@ -1,13 +1,13 @@
 package com.codecool;
 
-public class Weather {
+class Weather {
     private static boolean isRaining = false;
 
-    public static void setRaining() {
+    static void setRaining() {
         if (Util.probability(30)) isRaining = true;
     }
 
-    public static boolean isRaining() {
+    static boolean isRaining() {
         return isRaining;
     }
 }

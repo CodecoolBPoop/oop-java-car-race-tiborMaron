@@ -19,7 +19,7 @@ public class Race {
         vehicleTypes.add(trucks);
     }
 
-    private static void createVehicles() {
+    private void createVehicles() {
         for (int i = 0; i < 10; i++) {
             cars.add(new Car());
             motors.add(new Motorcycle());
@@ -27,18 +27,22 @@ public class Race {
         }
     }
 
-    private static void simulateRace() {
+    private void simulateRace() {
         Weather.setRaining();
         for (int i = 0; i < 50; i++) {
+            searchForBrokenTruck();
             for (List<Vehicle> vehicleType : vehicleTypes) {
                 for (Vehicle vehicle : vehicleType) {
-                    vehicle.moveForAnHour();
+                    vehicle.moveForAnHour(this);
                 }
             }
         }
     }
 
-    private static void printRaceResults() {
+    private void printRaceResults() {
+        if (Weather.isRaining()) System.out.println("It's raining!");
+        else System.out.println("It isn't raining!");
+
         for (int i = 0; i < vehicleTypes.size(); i++) {
             System.out.println("\n" + types[i] + "s:");
             for (Vehicle vehicle : vehicleTypes.get(i)) {
@@ -48,9 +52,24 @@ public class Race {
         }
     }
 
+    private void searchForBrokenTruck() {
+        for (Vehicle truck :  trucks) {
+            if (truck.isBrokenDown()) {
+                isThereABrokenTruck = true;
+                return;
+            }
+        }
+        isThereABrokenTruck = false;
+    }
+
+    boolean isIsThereABrokenTruck() {
+        return isThereABrokenTruck;
+    }
+
     public static void main(String[] args) {
-        createVehicles();
-        simulateRace();
-        printRaceResults();
+        Race race = new Race();
+        race.createVehicles();
+        race.simulateRace();
+        race.printRaceResults();
     }
 }
